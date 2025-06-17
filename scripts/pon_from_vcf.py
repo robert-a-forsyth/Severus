@@ -16,7 +16,7 @@ for var in vcf:
     if var.info['SVTYPE'] == 'INS':
         sv_list.append(','.join([var.chrom, str(var.pos),var.chrom, str(var.info['SVLEN']), str(var.info['CIPOS'][1]), str(var.info['CIEND'][1]), var.info['SVTYPE'], str(cc)]))
     elif var.info['SVTYPE'] == 'BND':
-        sv_list.append(','.join([var.chrom, str(var.pos),var.info['CHR2'], str(var.stop), str(var.info['CIPOS'][1]), str(var.info['CIEND'][1]), var.info['SVTYPE'], str(cc)]))
+        sv_list.append(','.join([var.chrom, str(var.pos),var.info['CHR2'], str(var.info['POS2']), str(var.info['CIPOS'][1]), str(var.info['CIEND'][1]), var.info['SVTYPE'], str(cc)]))
     else:
         sv_list.append(','.join([var.chrom, str(var.pos),var.chrom, str(var.stop), str(var.info['CIPOS'][1]), str(var.info['CIEND'][1]), var.info['SVTYPE'], str(cc)]))
     
