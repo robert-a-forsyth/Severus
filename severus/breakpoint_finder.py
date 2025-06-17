@@ -1964,6 +1964,10 @@ def add_pon(db_clust, pon_ls):
     MAX_LEN_DIFF = 50
     db = db_clust[0]
     mut_type = 'somatic'
+    combined = list(zip(*pon_ls))
+    combined.sort(key=lambda x: x[0])
+    for i in range(len(pon_ls)):
+        pon_ls[i][:] = [entry[i] for entry in combined]
     pos1, pos2 = db.bp_1.position - db.bp_1.CI - BUFF, db.bp_1.position + db.bp_1.CI + BUFF
     if db.vntr:
         pos1, pos2 = db.vntr[0] - VNTR_BUFF, db.vntr[1] + VNTR_BUFF
